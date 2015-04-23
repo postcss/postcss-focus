@@ -1,0 +1,24 @@
+{
+    "name": "postcss-focus",
+    "version": "0.0.0",
+    "description": "PostCSS plugin to add :focus selector to every :hover",
+    "keywords": ["postcss", "css", "postcssplugin", "hover", "focus"],
+    "author": "Andrey Sitnik <andrey@sitnik.ru>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url":  "https://github.com/postcss/postcss-focus.git"
+    },
+    "dependencies": {
+        "postcss": "^4.1.5"
+    },
+    "devDependencies": {
+        "gulp-eslint": "0.9.0",
+        "gulp-mocha":  "2.0.1",
+        "chai":        "2.2.0",
+        "gulp":        "3.8.11"
+    },
+    "scripts": {
+        "test": "gulp"
+    }
+}
