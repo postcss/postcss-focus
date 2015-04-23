@@ -3,17 +3,18 @@ var expect  = require('chai').expect;
 
 var plugin = require('../');
 
-var test = function (input, output, done) {
-    postcss([ plugin() ]).process(input).then(function (result) {
-        expect(result.css).to.eql(output);
-        done();
-    });
+var test = function (input, output) {
+    expect(postcss([ plugin() ]).process(input).css).to.eql(output);
 };
 
 describe('postcss-focus', function () {
 
-    it('adds focus selector', function (done) {
-        test('b, a:hover { }', 'b, a:hover, a:focus { }', done);
+    it('adds focus selector', function () {
+        test('a:hover, b {}', 'a:hover, b, a:focus {}');
+    });
+
+    it('adds focus selectors', function () {
+        test('a:hover, b:hover {}', 'a:hover, b:hover, a:focus, b:focus {}');
     });
 
 });
