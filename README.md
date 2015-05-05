@@ -1,10 +1,14 @@
-# PostCSS Focus [![Build Status](https://travis-ci.org/postcss/postcss-focus.svg)](https://travis-ci.org/postcss/postcss-focus)
+# PostCSS Focus [![Build Status][ci-img]][ci]
 
-<img align="right" width="135" height="95" src="http://postcss.github.io/postcss/logo-leftp.png" title="Philosopher’s stone, logo of PostCSS">
+<img align="right" width="135" height="95"
+     title="Philosopher’s stone, logo of PostCSS"
+     src="http://postcss.github.io/postcss/logo-leftp.png">
 
 [PostCSS] plugin to add `:focus` selector to every `:hover`.
 
 [PostCSS]: https://github.com/postcss/postcss
+[ci-img]:       https://travis-ci.org/postcss/postcss-focus.svg
+[ci]:           https://travis-ci.org/postcss/postcss-focus
 
 ```css
 .button:hover {
