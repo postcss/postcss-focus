@@ -6,9 +6,12 @@
 
 [PostCSS] plugin to add `:focus` selector to every `:hover`.
 
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:       https://travis-ci.org/postcss/postcss-focus.svg
-[ci]:           https://travis-ci.org/postcss/postcss-focus
+See also [postcss-pseudo-class-enter] for more explicit way.
+
+[postcss-pseudo-class-enter]: https://github.com/jonathantneal/postcss-pseudo-class-enter
+[PostCSS]:                    https://github.com/postcss/postcss
+[ci-img]:                     https://travis-ci.org/postcss/postcss-focus.svg
+[ci]:                         https://travis-ci.org/postcss/postcss-focus
 
 ```css
 .button:hover {
