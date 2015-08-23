@@ -1,25 +1,32 @@
 {
-    "name": "postcss-focus",
-    "version": "0.1.1",
-    "description": "PostCSS plugin to add :focus selector to every :hover",
-    "keywords": ["postcss", "css", "postcss-plugin", "hover", "focus", "a11y"],
-    "author": "Andrey Sitnik <andrey@sitnik.ru>",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url":  "https://github.com/postcss/postcss-focus.git"
-    },
-    "dependencies": {
-        "postcss": "^4.1.8"
-    },
-    "devDependencies": {
-        "gulp-eslint": "0.11.1",
-        "gulp-mocha":  "2.0.1",
-        "mocha":       "2.2.4",
-        "chai":        "2.3.0",
-        "gulp":        "3.8.11"
-    },
-    "scripts": {
-        "test": "gulp"
-    }
+  "name": "postcss-focus",
+  "version": "0.1.1",
+  "description": "PostCSS plugin to add :focus selector to every :hover",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "hover",
+    "focus",
+    "a11y"
+  ],
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url":  "https://github.com/postcss/postcss-focus.git"
+  },
+  "dependencies": {
+    "postcss": "^4.1.8"
+  },
+  "devDependencies": {
+    "gulp-eslint": "0.11.1",
+    "gulp-mocha":  "2.0.1",
+    "mocha":       "2.2.4",
+    "chai":        "2.3.0",
+    "gulp":        "3.8.11"
+  },
+  "scripts": {
+    "test": "gulp"
+  }
 }
