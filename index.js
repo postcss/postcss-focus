@@ -2,7 +2,7 @@ var postcss = require('postcss');
 
 module.exports = postcss.plugin('postcss-focus', function () {
     return function (css) {
-        css.eachRule(function (rule) {
+        css.walkRules(function (rule) {
             if ( rule.selector.indexOf(':hover') !== -1 ) {
                 var focuses = [];
                 rule.selectors.forEach(function (selector) {
@@ -11,7 +11,7 @@ module.exports = postcss.plugin('postcss-focus', function () {
                     }
                 });
                 if ( focuses.length ) {
-                    rule.selector = rule.selector + ', ' + focuses.join(', ');
+                    rule.selector = rule.selectors.concat(focuses);
                 }
             }
         });
