@@ -1,6 +1,6 @@
 {
   "name": "postcss-focus",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "PostCSS plugin to add :focus selector to every :hover",
   "keywords": [
     "postcss",
