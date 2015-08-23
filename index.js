@@ -11,7 +11,7 @@ module.exports = postcss.plugin('postcss-focus', function () {
                     }
                 });
                 if ( focuses.length ) {
-                    rule.selector = rule.selectors.concat(focuses);
+                    rule.selectors = rule.selectors.concat(focuses);
                 }
             }
         });
