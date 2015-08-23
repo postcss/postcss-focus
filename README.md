@@ -14,12 +14,18 @@ See also [postcss-pseudo-class-enter] for more explicit way.
 [ci]:                         https://travis-ci.org/postcss/postcss-focus
 
 ```css
+*:focus {
+    outline: 0;
+}
 .button:hover {
     background: red;
 }
 ```
 
 ```css
+*:focus {
+    outline: 0;
+}
 .button:hover, .button:focus {
     background: red;
 }
