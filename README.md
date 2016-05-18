@@ -4,7 +4,8 @@
      title="Philosopher’s stone, logo of PostCSS"
      src="http://postcss.github.io/postcss/logo-leftp.svg">
 
-[PostCSS] plugin to add `:focus` selector to every `:hover`.
+[PostCSS] plugin to add `:focus` selector to every `:hover`
+for keyboard accessibility.
 
 See also [postcss-pseudo-class-enter] for more explicit way.
 
