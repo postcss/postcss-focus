@@ -20,12 +20,12 @@
   },
   "homepage": "https://github.com/postcss/postcss-focus",
   "dependencies": {
-    "postcss": "^5.0.21"
+    "postcss": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^2.10.2",
-    "eslint-config-postcss": "^2.0.2",
-    "ava": "^0.14.0"
+    "ava": "^0.19.1",
+    "eslint": "^3.19.0",
+    "eslint-config-postcss": "^2.0.2"
   },
   "scripts": {
     "test": "ava && eslint *.js"
