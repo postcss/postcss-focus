@@ -23,17 +23,28 @@
     "postcss": "^6.0.1"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
     "eslint": "^3.19.0",
     "eslint-config-postcss": "^2.0.2",
+    "jest": "^20.0.0",
     "lint-staged": "^3.4.1",
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "test": "ava && eslint *.js"
+    "lint-staged": "lint-staged",
+    "test": "jest && eslint *.js"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 100
+      }
+    }
   },
   "eslintConfig": {
-    "extends": "eslint-config-postcss/es5"
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
   },
   "lint-staged": {
     "*.js": "eslint"
