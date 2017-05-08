@@ -25,12 +25,20 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "eslint": "^3.19.0",
-    "eslint-config-postcss": "^2.0.2"
+    "eslint-config-postcss": "^2.0.2",
+    "lint-staged": "^3.4.1",
+    "pre-commit": "^1.2.2"
   },
   "scripts": {
     "test": "ava && eslint *.js"
   },
   "eslintConfig": {
     "extends": "eslint-config-postcss/es5"
-  }
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ]
 }
