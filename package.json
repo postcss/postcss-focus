@@ -31,7 +31,7 @@
   },
   "scripts": {
     "lint-staged": "lint-staged",
-    "test": "jest && eslint *.js"
+    "test": "jest --coverage && eslint *.js"
   },
   "jest": {
     "coverageThreshold": {

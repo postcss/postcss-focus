@@ -3,11 +3,10 @@ const plugin = require('./');
 const postcss = require('postcss');
 
 function run(input, output) {
-    return postcss([ plugin ]).process(input)
-        .then( result => {
-            expect(result.css).toEqual(output);
-            expect(result.warnings().length).toEqual(0);
-        });
+    return postcss([ plugin ]).process(input).then( result => {
+        expect(result.css).toEqual(output);
+        expect(result.warnings().length).toEqual(0);
+    });
 }
 
 it('adds focus selector', () => {
