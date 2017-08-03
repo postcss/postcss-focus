@@ -17,3 +17,8 @@ it('adds focus selector', () => {
     return run('a:hover, b:hover {}',
                'a:hover, b:hover, a:focus, b:focus {}');
 });
+
+it('adds :hover:only selector', () => {
+    return run('a:hover, b:hover:only {}',
+               'a:hover, b:hover, a:focus {}');
+});
