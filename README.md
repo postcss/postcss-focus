@@ -21,6 +21,9 @@ See also [postcss-pseudo-class-enter] for more explicit way.
 .button:hover {
     background: red;
 }
+button:hover, a:hover:only {
+    background: red;
+}
 ```
 
 ```css
@@ -28,6 +31,9 @@ See also [postcss-pseudo-class-enter] for more explicit way.
     outline: 0;
 }
 .button:hover, .button:focus {
+    background: red;
+}
+button:hover, a:hover, button:focus {
     background: red;
 }
 ```
