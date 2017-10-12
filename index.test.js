@@ -22,9 +22,13 @@ it('adds focus selector', () => {
 
 it('ignores hover selector because of focus', () => {
     return run(
-        'a:hover, b:hover { color: white; } ' +
-            'b:focus { color: black; } @media { b:hover { } }',
-        'a:hover, b:hover, a:focus { color: white; } ' +
-            'b:focus { color: black; } @media { b:hover, b:focus { } }'
+        '.foo:hover {} .foo:focus {} ' +
+            'a:hover, b:hover {} ' +
+            'b:focus {} ' +
+            '@media { b:hover {} }',
+        '.foo:hover {} .foo:focus {} ' +
+            'a:hover, b:hover, a:focus {} ' +
+            'b:focus {} ' +
+            '@media { b:hover, b:focus {} }'
     );
 });
