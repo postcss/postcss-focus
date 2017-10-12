@@ -9,7 +9,8 @@ module.exports = postcss.plugin('postcss-focus', function () {
                     if ( selector.indexOf(':hover') !== -1 ) {
                         var replaced = selector.replace(/:hover/g, ':focus');
                         if (!rule.parent.nodes.some(function (i) {
-                            return i.selector === replaced;
+                            return i.type === 'rule' &&
+                                   i.selectors.indexOf(replaced) !== -1;
                         })) {
                             focuses.push(replaced);
                         }
