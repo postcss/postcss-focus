@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 3.0
+* Do not process if there is a `:focus` selector already (by Vitalii Rizo).
+
 ## 2.0
 * Use PostCSS 6.0.
 
