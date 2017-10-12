@@ -14,14 +14,17 @@ it('adds focus selector', () => {
 });
 
 it('adds focus selector', () => {
-    return run('a:hover, b:hover {}',
-               'a:hover, b:hover, a:focus, b:focus {}');
+    return run(
+        'a:hover, b:hover {}',
+        'a:hover, b:hover, a:focus, b:focus {}'
+    );
 });
 
 it('ignores hover selector because of focus', () => {
-    const before = 'a:hover, b:hover { color: white; } ' +
-                   'b:focus { color: black; } @media { b:hover { } }';
-    const after  = 'a:hover, b:hover, a:focus { color: white; } ' +
-                   'b:focus { color: black; } @media { b:hover, b:focus { } }';
-    return run(before, after);
+    return run(
+        'a:hover, b:hover { color: white; } ' +
+            'b:focus { color: black; } @media { b:hover { } }',
+        'a:hover, b:hover, a:focus { color: white; } ' +
+            'b:focus { color: black; } @media { b:hover, b:focus { } }'
+    );
 });
