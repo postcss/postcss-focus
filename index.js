@@ -7,7 +7,13 @@ module.exports = postcss.plugin('postcss-focus', function () {
                 var focuses = [];
                 rule.selectors.forEach(function (selector) {
                     if ( selector.indexOf(':hover') !== -1 ) {
-                        focuses.push(selector.replace(/:hover/g, ':focus'));
+                        var replaced = selector.replace(/:hover/g, ':focus');
+                        if (!rule.parent.nodes.some(function (i) {
+                            return i.type === 'rule' &&
+                                   i.selectors.indexOf(replaced) !== -1;
+                        })) {
+                            focuses.push(replaced);
+                        }
                     }
                 });
                 if ( focuses.length ) {
