@@ -1,28 +1,28 @@
-var postcss = require('postcss')
-
 function hasAlready (parent, selector) {
-  return parent.nodes.some(function (i) {
-    return i.type === 'rule' && i.selectors.indexOf(selector) !== -1
+  return parent.some(i => {
+    return i.type === 'rule' && i.selectors.includes(selector)
   })
 }
 
-module.exports = postcss.plugin('postcss-focus', function () {
-  return function (css) {
-    css.walkRules(function (rule) {
-      if (rule.selector.indexOf(':hover') !== -1) {
-        var focuses = []
-        rule.selectors.forEach(function (selector) {
-          if (selector.indexOf(':hover') !== -1) {
-            var replaced = selector.replace(/:hover/g, ':focus')
+module.exports = () => {
+  return {
+    postcssPlugin: 'postcss-focus',
+    Rule: rule => {
+      if (rule.selector.includes(':hover')) {
+        let focuses = []
+        for (let selector of rule.selectors) {
+          if (selector.includes(':hover')) {
+            let replaced = selector.replace(/:hover/g, ':focus')
             if (!hasAlready(rule.parent, replaced)) {
               focuses.push(replaced)
             }
           }
-        })
+        }
         if (focuses.length) {
           rule.selectors = rule.selectors.concat(focuses)
         }
       }
-    })
+    }
   }
-})
+}
+module.exports.postcss = true

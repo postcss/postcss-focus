@@ -1,28 +1,23 @@
-var plugin = require('./')
+let postcss = require('postcss')
 
-var postcss = require('postcss')
+let plugin = require('./')
 
-function run (input, output) {
-  return postcss([plugin]).process(input, { from: undefined })
-    .then(function (result) {
-      expect(result.css).toEqual(output)
-      expect(result.warnings()).toHaveLength(0)
-    })
+async function run (input, output) {
+  let result = await postcss([plugin]).process(input, { from: undefined })
+  expect(result.css).toEqual(output)
+  expect(result.warnings()).toHaveLength(0)
 }
 
-it('adds focus selector', function () {
-  return run('a:hover, b {}', 'a:hover, b, a:focus {}')
+it('adds focus selector', async () => {
+  await run('a:hover, b {}', 'a:hover, b, a:focus {}')
 })
 
-it('adds focus selectors', function () {
-  return run(
-    'a:hover, b:hover {}',
-    'a:hover, b:hover, a:focus, b:focus {}'
-  )
+it('adds focus selectors', async () => {
+  await run('a:hover, b:hover {}', 'a:hover, b:hover, a:focus, b:focus {}')
 })
 
-it('ignores hover selector because of focus', function () {
-  return run(
+it('ignores hover selector because of focus', async () => {
+  await run(
     '.foo:hover {} .foo:focus {} ' +
       'a:hover, b:hover {} ' +
       'b:focus {} ' +
