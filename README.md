@@ -14,19 +14,19 @@ See also [postcss-pseudo-class-enter] for more explicit way.
 
 ```css
 *:focus {
-    outline: 0;
+  outline: 0;
 }
 .button:hover {
-    background: red;
+  background: red;
 }
 ```
 
 ```css
 *:focus {
-    outline: 0;
+  outline: 0;
 }
 .button:hover, .button:focus {
-    background: red;
+  background: red;
 }
 ```
 
@@ -34,19 +34,19 @@ If there is a `:focus` selector, it will be excluded from the processing.
 
 ```css
 .a:hover, .b:hover {
-    outline: 0;
+  outline: 0;
 }
 .b:focus {
-    background: red;
+  background: red;
 }
 ```
 
 ```css
 .a:hover, .b:hover, .a:focus {
-    outline: 0;
+  outline: 0;
 }
 .b:focus {
-    background: red;
+  background: red;
 }
 ```
 
