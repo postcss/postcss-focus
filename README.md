@@ -58,14 +58,20 @@ If there is a `:focus` selector, it will be excluded from the processing.
 
 ## Usage
 
-**Step 1:** Check you project for existed PostCSS config: `postcss.config.js`
+**Step1:** Install plugin:
+
+```sh
+npm install --save-dev postcss postcss-focus
+```
+
+**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`
 in the project root, `"postcss"` section in `package.json`
 or `postcss` in bundle config.
 
 If you do not use PostCSS, add it according to [official docs]
 and set this plugin in settings.
 
-**Step 2:** Add the plugin to plugins list:
+**Step 3:** Add the plugin to plugins list:
 
 ```diff
 module.exports = {
