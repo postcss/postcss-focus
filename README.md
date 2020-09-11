@@ -58,7 +58,7 @@ If there is a `:focus` selector, it will be excluded from the processing.
 
 ## Usage
 
-**Step1:** Install plugin:
+**Step 1:** Install plugin:
 
 ```sh
 npm install --save-dev postcss postcss-focus
