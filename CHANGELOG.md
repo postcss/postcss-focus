@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.0
+* Moved to PostCSS 8.
+* Moved `postcss` to `peerDependencies`.
+
 ## 4.0
 * Use PostCSS 7.
 * Remove Node.js 4 support.
