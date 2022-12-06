@@ -1,4 +1,4 @@
-function hasAlready (parent, selector) {
+function hasAlready(parent, selector) {
   return parent.some(i => {
     return i.type === 'rule' && i.selectors.includes(selector)
   })
