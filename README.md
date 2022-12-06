@@ -55,7 +55,6 @@ If there is a `:focus` selector, it will be excluded from the processing.
        alt="Sponsored by Evil Martians" width="236" height="54">
 </a>
 
-
 ## Usage
 
 **Step 1:** Install plugin:
@@ -64,7 +63,7 @@ If there is a `:focus` selector, it will be excluded from the processing.
 npm install --save-dev postcss postcss-focus
 ```
 
-**Step 2:** Check you project for existed PostCSS config: `postcss.config.js`
+**Step 2:** Check your project for existing PostCSS config: `postcss.config.js`
 in the project root, `"postcss"` section in `package.json`
 or `postcss` in bundle config.
 
