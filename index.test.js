@@ -35,6 +35,17 @@ test('ignores hover selector because of focus', async () => {
       'b:focus {} ' +
       '@media { b:hover, b:focus {} }'
   )
+  await run(
+    '.foo:hover {} .foo:focus-visible {} ' +
+      'a:hover, b:hover {} ' +
+      'b:focus-visible {} ' +
+      '@media { b:hover {} }',
+    '.foo:hover {} .foo:focus-visible {} ' +
+      'a:hover, b:hover, a:focus-visible {} ' +
+      'b:focus-visible {} ' +
+      '@media { b:hover, b:focus-visible {} }',
+    { focusVisible: true }
+  )
 })
 
 test.run()
