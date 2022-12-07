@@ -4,7 +4,7 @@
      title="Philosopher’s stone, logo of PostCSS"
      src="https://postcss.org/logo-leftp.svg">
 
-[PostCSS] plugin to add `:focus` selector to every `:hover`
+[PostCSS] plugin to add `:focus-visible` selector to every `:hover`
 for keyboard accessibility.
 
 See also [postcss-pseudo-class-enter] for more explicit way.
@@ -13,7 +13,7 @@ See also [postcss-pseudo-class-enter] for more explicit way.
 [PostCSS]:                    https://github.com/postcss/postcss
 
 ```css
-*:focus {
+*:focus-visible {
   outline: 0;
 }
 .button:hover {
@@ -22,30 +22,31 @@ See also [postcss-pseudo-class-enter] for more explicit way.
 ```
 
 ```css
-*:focus {
+*:focus-visible {
   outline: 0;
 }
-.button:hover, .button:focus {
+.button:hover, .button:focus-visible {
   background: red;
 }
 ```
 
-If there is a `:focus` selector, it will be excluded from the processing.
+If there is a `:focus-visible` selector, it will be excluded
+from the processing.
 
 ```css
 .a:hover, .b:hover {
   outline: 0;
 }
-.b:focus {
+.b:focus-visible {
   background: red;
 }
 ```
 
 ```css
-.a:hover, .b:hover, .a:focus {
+.a:hover, .b:hover, .a:focus-visible {
   outline: 0;
 }
-.b:focus {
+.b:focus-visible {
   background: red;
 }
 ```
@@ -87,17 +88,17 @@ module.exports = {
 module.exports = {
   plugins: [
     require('postcss-focus')({
-      focusVisible: true
+      oldFocus: true
     })
   ]
 }
 ```
 
-### `focusVisible`
+### `oldFocus`
 
 Type: `boolean`. Default: `false`.
 
-Enable if you need to add a `:focus-visible` instead of `:focus` selector
+Enable if you need to add the old `:focus` instead of `:focus-visible` selector
 to every `:hover`.
 
 [official docs]: https://github.com/postcss/postcss#usage

@@ -11,30 +11,23 @@ async function run(input, output, opts = {}) {
 }
 
 test('adds focus selector', async () => {
-  await run('a:hover, b {}', 'a:hover, b, a:focus {}')
+  await run('a:hover, b {}', 'a:hover, b, a:focus-visible {}')
 })
 
-test('has focusVisible option', async () => {
-  await run('a:hover, b {}', 'a:hover, b, a:focus-visible {}', {
-    focusVisible: true
+test('supports old focus', async () => {
+  await run('a:hover, b {}', 'a:hover, b, a:focus {}', {
+    oldFocus: true
   })
 })
 
 test('adds focus selectors', async () => {
-  await run('a:hover, b:hover {}', 'a:hover, b:hover, a:focus, b:focus {}')
+  await run(
+    'a:hover, b:hover {}',
+    'a:hover, b:hover, a:focus-visible, b:focus-visible {}'
+  )
 })
 
 test('ignores hover selector because of focus', async () => {
-  await run(
-    '.foo:hover {} .foo:focus {} ' +
-      'a:hover, b:hover {} ' +
-      'b:focus {} ' +
-      '@media { b:hover {} }',
-    '.foo:hover {} .foo:focus {} ' +
-      'a:hover, b:hover, a:focus {} ' +
-      'b:focus {} ' +
-      '@media { b:hover, b:focus {} }'
-  )
   await run(
     '.foo:hover {} .foo:focus-visible {} ' +
       'a:hover, b:hover {} ' +
@@ -43,8 +36,18 @@ test('ignores hover selector because of focus', async () => {
     '.foo:hover {} .foo:focus-visible {} ' +
       'a:hover, b:hover, a:focus-visible {} ' +
       'b:focus-visible {} ' +
-      '@media { b:hover, b:focus-visible {} }',
-    { focusVisible: true }
+      '@media { b:hover, b:focus-visible {} }'
+  )
+  await run(
+    '.foo:hover {} .foo:focus {} ' +
+      'a:hover, b:hover {} ' +
+      'b:focus {} ' +
+      '@media { b:hover {} }',
+    '.foo:hover {} .foo:focus {} ' +
+      'a:hover, b:hover, a:focus {} ' +
+      'b:focus {} ' +
+      '@media { b:hover, b:focus {} }',
+    { oldFocus: true }
   )
 })
 

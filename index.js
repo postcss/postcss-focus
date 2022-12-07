@@ -5,7 +5,7 @@ function hasAlready(parent, selector) {
 }
 
 module.exports = (opts = {}) => {
-  let pseudoClass = opts.focusVisible ? ':focus-visible' : ':focus'
+  let pseudoClass = opts.oldFocus ? ':focus' : ':focus-visible'
 
   return {
     postcssPlugin: 'postcss-focus',
