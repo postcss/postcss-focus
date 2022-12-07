@@ -4,14 +4,20 @@ let postcss = require('postcss')
 
 let plugin = require('./')
 
-async function run(input, output) {
-  let result = postcss([plugin()]).process(input, { from: undefined })
+async function run(input, output, opts = {}) {
+  let result = postcss([plugin(opts)]).process(input, { from: undefined })
   equal(result.css, output)
   equal(result.warnings().length, 0)
 }
 
 test('adds focus selector', async () => {
   await run('a:hover, b {}', 'a:hover, b, a:focus {}')
+})
+
+test('has focusVisible option', async () => {
+  await run('a:hover, b {}', 'a:hover, b, a:focus-visible {}', {
+    focusVisible: true
+  })
 })
 
 test('adds focus selectors', async () => {

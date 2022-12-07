@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## next
+* Added `focusVisible` option to support the `:focus-visible` selector
+(by Eduard Aksamitov).
+
 ## 5.0.1
 * Added funding links.
 

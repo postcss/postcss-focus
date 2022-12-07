@@ -81,4 +81,23 @@ module.exports = {
 }
 ```
 
+## Options
+
+```js
+module.exports = {
+  plugins: [
+    require('postcss-focus')({
+      focusVisible: true
+    })
+  ]
+}
+```
+
+### `focusVisible`
+
+Type: `boolean`. Default: `false`.
+
+Enable if you need to add a `:focus-visible` instead of `:focus` selector
+to every `:hover`.
+
 [official docs]: https://github.com/postcss/postcss#usage
