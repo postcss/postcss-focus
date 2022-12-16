@@ -4,7 +4,9 @@ function hasAlready(parent, selector) {
   })
 }
 
-module.exports = () => {
+module.exports = (opts = {}) => {
+  let pseudoClass = opts.oldFocus ? ':focus' : ':focus-visible'
+
   return {
     postcssPlugin: 'postcss-focus',
     Rule: rule => {
@@ -12,7 +14,7 @@ module.exports = () => {
         let focuses = []
         for (let selector of rule.selectors) {
           if (selector.includes(':hover')) {
-            let replaced = selector.replace(/:hover/g, ':focus')
+            let replaced = selector.replace(/:hover/g, pseudoClass)
             if (!hasAlready(rule.parent, replaced)) {
               focuses.push(replaced)
             }

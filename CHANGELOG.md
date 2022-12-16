@@ -1,6 +1,11 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## next
+* Migrated to `:focus-visible` instead of the old `:focus` selector
+(by Eduard Aksamitov).
+* Added `oldFocus` option to support the old focus (by Eduard Aksamitov).
+
 ## 5.0.1
 * Added funding links.
 
