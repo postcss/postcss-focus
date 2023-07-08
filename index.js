@@ -21,7 +21,12 @@ module.exports = (opts = {}) => {
           }
         }
         if (focuses.length) {
-          rule.selectors = rule.selectors.concat(focuses)
+          if (opts.splitRules) {
+            let clone = rule.cloneAfter()
+            clone.selectors = focuses;
+          } else {
+            rule.selectors = rule.selectors.concat(focuses)
+          }
         }
       }
     }

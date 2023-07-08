@@ -20,6 +20,19 @@ test('supports old focus', async () => {
   })
 })
 
+test('supports split rules', async () => {
+  await run('a:hover, b {}', 'a:hover, b {}a:focus-visible {}', {
+    splitRules: true
+  })
+})
+
+test('supports split rules and old focus', async () => {
+  await run('a:hover, b {}', 'a:hover, b {}a:focus {}', {
+    oldFocus: true,
+    splitRules: true
+  })
+})
+
 test('adds focus selectors', async () => {
   await run(
     'a:hover, b:hover {}',
