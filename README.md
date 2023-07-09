@@ -88,7 +88,8 @@ module.exports = {
 module.exports = {
   plugins: [
     require('postcss-focus')({
-      oldFocus: true
+      oldFocus: true,
+      splitRules: true,
     })
   ]
 }
@@ -100,5 +101,11 @@ Type: `boolean`. Default: `false`.
 
 Enable if you need to add the old `:focus` instead of `:focus-visible` selector
 to every `:hover`.
+
+### `splitRules`
+
+Type: `boolean`. Default: `false`.
+
+Enable if you need to split the new selector into a separate rule. Use this if you need to support browsers, which doesn't support `:focus-visible`.
 
 [official docs]: https://github.com/postcss/postcss#usage
