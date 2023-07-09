@@ -104,7 +104,7 @@ to every `:hover`.
 
 ### `splitRules`
 
-Type: `boolean`. Default: `false`.
+Type: `boolean`. Default: `true`.
 
 Enable if you need to split the new selector into a separate rule. Use this if you need to support browsers, which doesn't support `:focus-visible`.
 
