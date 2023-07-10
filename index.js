@@ -6,7 +6,6 @@ function hasAlready(parent, selector) {
 
 module.exports = (opts = {}) => {
   let pseudoClass = opts.oldFocus ? ':focus' : ':focus-visible'
-  let splitRules = typeof opts.splitRules === 'undefined' ? true : opts.splitRules
 
   return {
     postcssPlugin: 'postcss-focus',
@@ -22,11 +21,11 @@ module.exports = (opts = {}) => {
           }
         }
         if (focuses.length) {
-          if (splitRules) {
-            let clone = rule.cloneAfter()
-            clone.selectors = focuses;
-          } else {
+          if (opts.splitRules === false) {
             rule.selectors = rule.selectors.concat(focuses)
+          } else {
+            let clone = rule.cloneAfter()
+            clone.selectors = focuses
           }
         }
       }
