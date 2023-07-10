@@ -25,7 +25,10 @@ See also [postcss-pseudo-class-enter] for more explicit way.
 *:focus-visible {
   outline: 0;
 }
-.button:hover, .button:focus-visible {
+.button:hover {
+    background: red;
+}
+.button:focus-visible {
   background: red;
 }
 ```
