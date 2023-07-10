@@ -92,7 +92,7 @@ module.exports = {
   plugins: [
     require('postcss-focus')({
       oldFocus: true,
-      splitRules: true,
+      splitRules: false,
     })
   ]
 }
