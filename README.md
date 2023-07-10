@@ -25,7 +25,10 @@ See also [postcss-pseudo-class-enter] for more explicit way.
 *:focus-visible {
   outline: 0;
 }
-.button:hover, .button:focus-visible {
+.button:hover {
+    background: red;
+}
+.button:focus-visible {
   background: red;
 }
 ```
@@ -88,7 +91,8 @@ module.exports = {
 module.exports = {
   plugins: [
     require('postcss-focus')({
-      oldFocus: true
+      oldFocus: true,
+      splitRules: false,
     })
   ]
 }
@@ -100,5 +104,11 @@ Type: `boolean`. Default: `false`.
 
 Enable if you need to add the old `:focus` instead of `:focus-visible` selector
 to every `:hover`.
+
+### `splitRules`
+
+Type: `boolean`. Default: `true`.
+
+Disable if you need to append the selector. If you don't need to support browsers, which doesn't support `:focus-visible`, you can safely disable this option.
 
 [official docs]: https://github.com/postcss/postcss#usage
