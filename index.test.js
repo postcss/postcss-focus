@@ -4,72 +4,68 @@ let postcss = require('postcss')
 
 let plugin = require('./')
 
-async function run(input, output, opts = {}) {
+function run(input, output, opts = {}) {
   let result = postcss([plugin(opts)]).process(input, { from: undefined })
   equal(result.css, output)
   equal(result.warnings().length, 0)
 }
 
-test('adds focus selector', async () => {
-  await run('a:hover, b {}', 'a:hover, b, a:focus-visible {}', {
-    splitRules: false,
+test('adds focus selector', () => {
+  run('a:hover, b {}', 'a:hover, b {}a:focus-visible {}')
+})
+
+test('supports old focus', () => {
+  run('a:hover, b {}', 'a:hover, b {}a:focus {}', {
+    oldFocus: true
   })
 })
 
-test('supports old focus', async () => {
-  await run('a:hover, b {}', 'a:hover, b, a:focus {}', {
+test('supports non-splitting', () => {
+  run('a:hover, b {}', 'a:hover, b, a:focus-visible {}', {
+    splitRules: false
+  })
+})
+
+test('supports split rules', () => {
+  run('a:hover, b {}', 'a:hover, b {}a:focus-visible {}')
+})
+
+test('supports split rules and old focus', () => {
+  run('a:hover, b {}', 'a:hover, b, a:focus {}', {
     oldFocus: true,
-    splitRules: false,
+    splitRules: false
   })
 })
 
-test('supports split rules', async () => {
-  await run('a:hover, b {}', 'a:hover, b {}a:focus-visible {}')
-})
-
-test('supports split rules and old focus', async () => {
-  await run('a:hover, b {}', 'a:hover, b {}a:focus {}', {
-    oldFocus: true,
-    splitRules: true,
-  })
-})
-
-test('adds focus selectors', async () => {
-  await run(
+test('adds focus selectors', () => {
+  run(
     'a:hover, b:hover {}',
-    'a:hover, b:hover, a:focus-visible, b:focus-visible {}',
-    {
-      splitRules: false,
-    }
+    'a:hover, b:hover {}a:focus-visible, b:focus-visible {}'
   )
 })
 
-test('ignores hover selector because of focus', async () => {
-  await run(
+test('ignores hover selector because of focus', () => {
+  run(
     '.foo:hover {} .foo:focus-visible {} ' +
       'a:hover, b:hover {} ' +
       'b:focus-visible {} ' +
       '@media { b:hover {} }',
     '.foo:hover {} .foo:focus-visible {} ' +
-      'a:hover, b:hover, a:focus-visible {} ' +
+      'a:hover, b:hover {} a:focus-visible {} ' +
       'b:focus-visible {} ' +
-      '@media { b:hover, b:focus-visible {} }',
-    {
-      splitRules: false,
-    }
+      '@media { b:hover {} b:focus-visible {} }'
   )
-  await run(
+  run(
     '.foo:hover {} .foo:focus {} ' +
       'a:hover, b:hover {} ' +
       'b:focus {} ' +
       '@media { b:hover {} }',
     '.foo:hover {} .foo:focus {} ' +
-      'a:hover, b:hover, a:focus {} ' +
+      'a:hover, b:hover {} a:focus {} ' +
       'b:focus {} ' +
-      '@media { b:hover, b:focus {} }',
+      '@media { b:hover {} b:focus {} }',
     {
-      oldFocus: true,
-      splitRules: false,
+      oldFocus: true
     }
   )
 })
