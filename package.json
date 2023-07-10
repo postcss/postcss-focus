@@ -17,7 +17,9 @@
   "repository": "postcss/postcss-focus",
   "scripts": {
     "unit": "uvu . '\\.test\\.js$'",
-    "test": "c8 pnpm unit && eslint ."
+    "test:lint": "eslint .",
+    "test:coverage": "c8 pnpm unit",
+    "test": "pnpm run /^test:/"
   },
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
