@@ -109,6 +109,6 @@ to every `:hover`.
 
 Type: `boolean`. Default: `true`.
 
-Enable if you need to split the new selector into a separate rule. Use this if you need to support browsers, which doesn't support `:focus-visible`.
+Disable if you need to append the selector. If you don't need to support browsers, which doesn't support `:focus-visible`, you can safely disable this option.
 
 [official docs]: https://github.com/postcss/postcss#usage
