@@ -1,6 +1,11 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 7.0
+* Moved to rule splitting to avoid ignoring unknown rule (by Anders Søgaard).
+* Added `splitRules` option for old behavior (by Anders Søgaard).
+* Removed Node.js 10, 14, and 16 support.
+
 ## 6.0
 * Moved to `:focus-visible` (by Eduard Aksamitov).
 * Added `oldFocus` option to support the old focus (by Eduard Aksamitov).
